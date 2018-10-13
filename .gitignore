@@ -2,3 +2,10 @@
 /.idea
 battleNowSDK.iml
 /.gradle
+gradle/
+gradlew
+gradlew.bat
+libs/
+out/
+
+classes/
