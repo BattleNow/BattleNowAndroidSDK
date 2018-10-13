@@ -1,4 +1,4 @@
-package com.allen.battlenowsdk.model.exceptions
+package com.allen.battlenowsdk.exceptions
 
 import java.lang.Exception
 

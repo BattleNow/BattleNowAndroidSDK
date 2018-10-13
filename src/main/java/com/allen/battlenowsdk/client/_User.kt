@@ -1,6 +1,6 @@
-package com.allen.battlenowsdk.model.client
+package com.allen.battlenowsdk.client
 
-import com.allen.battlenowsdk.model.common.ListResponse
+import com.allen.battlenowsdk.common.ListResponse
 import com.allen.battlenowsdk.model.requets.user.CreateUserReqeustBody
 import com.allen.battlenowsdk.model.requets.user.UserLoginRequestBody
 import com.allen.battlenowsdk.model.response.user.CreateUserResponseBody

@@ -1,4 +1,4 @@
-package com.allen.battlenowsdk.model.common
+package com.allen.battlenowsdk.common
 
 open  class ListResponse<T>(
         val count: Int,

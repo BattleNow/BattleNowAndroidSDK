@@ -1,4 +1,4 @@
-package com.allen.battlenowsdk.model.client
+package com.allen.battlenowsdk.client
 
 import com.allen.battlenowsdk.model.response.group.PlayerGroupResponse
 

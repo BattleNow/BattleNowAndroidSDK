@@ -1,7 +1,7 @@
-package com.allen.battlenowsdk.model.client
+package com.allen.battlenowsdk.client
 
-import com.allen.battlenowsdk.model.common.ListResponse
-import com.allen.battlenowsdk.model.exceptions.NeedLoginException
+import com.allen.battlenowsdk.common.ListResponse
+import com.allen.battlenowsdk.exceptions.NeedLoginException
 import com.allen.battlenowsdk.model.response.challenge.ChallengeResponse
 
 /**

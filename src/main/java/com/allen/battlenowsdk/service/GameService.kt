@@ -1,6 +1,6 @@
 package com.allen.battlenowsdk.service
 
-import com.allen.battlenowsdk.model.common.ListResponse
+import com.allen.battlenowsdk.common.ListResponse
 import com.allen.battlenowsdk.model.response.game.GameResponseBody
 import kotlinx.coroutines.experimental.Deferred
 import retrofit2.http.GET
