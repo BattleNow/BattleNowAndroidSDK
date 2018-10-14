@@ -3,7 +3,7 @@ package com.allen.battlenowsdk.model.response.user
 import com.google.gson.annotations.SerializedName
 
 
-data class UserFollowResponseBody(
+data class UserFollowResult(
         val id: Int,
         @SerializedName("following_username")
         val followingUsername: String,

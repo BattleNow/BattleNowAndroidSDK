@@ -1,11 +1,10 @@
 package com.allen.battlenowsdk.client
 
+import com.allen.battlenowsdk.common.AuthorizationUtil
 import com.allen.battlenowsdk.common.ListResponse
-import com.allen.battlenowsdk.model.response.match.MatchPlayerGroupRankResponse
-import com.allen.battlenowsdk.model.response.match.MatchResponse
-import com.allen.battlenowsdk.model.response.match.MatchUserRankResponse
+import com.allen.battlenowsdk.exceptions.NeedLoginException
+import com.allen.battlenowsdk.model.response.match.*
 import com.allen.battlenowsdk.model.response.user.GetUserResponseBody
-import com.allen.battlenowsdk.model.response.match.MatchPlayerGroupResponse
 
 public suspend fun BattleNowClient.getMatchList(params: Map<String, String>): ListResponse<MatchResponse> {
     return matchService.fetchMatches(params).await()
@@ -37,4 +36,20 @@ public suspend fun BattleNowClient.getMatchPlayerGroupList(
         params: Map<String, String> = mapOf()
 ): ListResponse<MatchPlayerGroupResponse> {
     return matchService.getMatchPlayerGroupList(matchId, params).await()
+}
+
+public suspend fun BattleNowClient.userJoinMatch(matchId: Int, body: UserJoinMatchRequestBody) {
+    tokenRepository.getToken()?.let {
+        matchService.userJoinMatch(matchId, AuthorizationUtil.buildAuthorizationHeader(it), body).await()
+    } ?: throw NeedLoginException()
+}
+
+public suspend fun BattleNowClient.playerGroupJoinMatch(matchId: Int, body: GroupJoinMatchRequestBody) {
+    tokenRepository.getToken()?.let {
+        matchService.groupJoinMatch(matchId, AuthorizationUtil.buildAuthorizationHeader(it), body).await()
+    } ?: throw NeedLoginException()
+}
+
+public suspend fun BattleNowClient.getMatchPlayerGroupMemberList(matchId: Int, matchPlayerGroupId: Int, params: Map<String, String> = mapOf()): ListResponse<GetUserResponseBody> {
+    return matchService.getMatchPlayerGroupMembers(matchId, matchPlayerGroupId, params).await()
 }
